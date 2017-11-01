@@ -1,0 +1,67 @@
+#!/bin/bash
+
+#
+# docker_build_and_push - Build and Push a Busbar Docker Container
+#
+
+
+### Variables
+docker_registry=$1
+version=$2
+app_name='busbar'
+
+
+### Functions
+usage() {
+    echo
+    echo "Return Current Versions:"
+    echo "    $0 <docker_registry>:<docker_registry_port>"
+    echo
+    echo "Deploy:"
+    echo "    $0 <docker_registry>:<docker_registry_port> <version>"
+    echo
+}
+
+
+### Validations
+# Return current registry versions
+if [[ $# == 1 ]]; then
+    current_versions=$(curl --silent  ${docker_registry}/v2/${app_name}/tags/list)
+    echo "Current Versions:"
+    echo $current_versions | jq .tags
+    exit 0
+fi
+
+# Parameter validation
+if [ $# -ne 2 ]; then
+    usage
+    exit 1
+fi
+
+
+### Action! o/
+# Only build if the version don't exist already
+current_versions=$(curl --silent  ${docker_registry}/v2/${app_name}/tags/list)
+if echo $current_versions | grep -qs $version ; then
+    echo "Version: $version already exist on registry."
+    echo "Current Versions:"
+    echo $current_versions | jq .tags
+    exit 1
+fi
+
+# Create version.txt file
+git_current_commit=$(git rev-parse HEAD)
+echo "$version $git_current_commit" > public/version.txt
+
+# Docker build
+docker build --rm --force-rm -t ${app_name}:${version} -t ${app_name}:latest . || exit 1
+
+# Docker tag
+docker tag ${app_name}:${version} ${docker_registry}/${app_name}:${version}
+docker tag ${app_name}:latest ${docker_registry}/${app_name}:latest
+
+# Docker push
+docker push ${docker_registry}/${app_name}:${version}
+docker push ${docker_registry}/${app_name}:latest
+
+exit 0

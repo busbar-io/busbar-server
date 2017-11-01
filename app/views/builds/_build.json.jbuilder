@@ -1,0 +1,15 @@
+json.id build.id.to_s
+json.state build.state
+json.buildpack_id build.buildpack_id
+json.repository build.repository
+json.branch build.branch
+json.commit build.commit
+json.tag build.tag
+json.commands build.commands
+json.built_at build.built_at
+json.environment_id build.environment.id.to_s
+json.app_id build.app_id
+json.environment_name build.environment.name
+json.created_at build.created_at.iso8601
+json.updated_at build.updated_at.iso8601
+json.log build.log.content

@@ -1,0 +1,1 @@
+json.scale component.scale

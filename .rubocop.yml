@@ -1,0 +1,38 @@
+Metrics/LineLength:
+  Max: 100
+
+Metrics/ClassLength:
+  Max: 130
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 25
+
+Metrics/AbcSize:
+  Max: 25
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+Style/EachWithObject:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ExtraSpacing:
+  Enabled: false
+
+FrozenStringLiteralComment:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'config/initializers/backtrace_silencers.rb'
+    - 'bin/setup'
+    - 'bin/spring'
+    - 'spec/spec_helper.rb'
