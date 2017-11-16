@@ -21,3 +21,5 @@
 /public/version.txt
 
 .busbar.yml
+
+config/deploy.pem
