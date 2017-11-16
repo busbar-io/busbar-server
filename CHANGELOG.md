@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.5.2] - 2017-11-16
+### Fix
+- Gems security update
+
 ## [1.5.1] - 2017-11-16
 ### Fix
 - Make SSL_CERTIFICATE optional
