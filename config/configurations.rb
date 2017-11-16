@@ -30,7 +30,7 @@ module Configurations
       default :domain_name, SharedConfigFetcher.public_domain_name
     end
 
-    default :ssl_certificate, ENV.fetch('SSL_CERTIFICATE', 'SSL_CERTIFICATE')
+    default :ssl_certificate, ENV.fetch('SSL_CERTIFICATE', nil)
   end
 
   config_context :dns do
