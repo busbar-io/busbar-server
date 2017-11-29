@@ -3,14 +3,14 @@
 A tool to build, deploy and control applications running on a Kubernetes cluster.
 
 
-# Overview
+## Overview
 
 Busbar acts as a easy to use interface between developers and a Kubernetes cluster allowing developers to create/deploy/scale/publish applications using simple [busbar-cli](https://github.com/busbar-io/busbar-cli) commands.
 
 Busbar currently is an AWS centric application so access to an AWS account is needed in order to use Busbar.
 
 
-# Installation and Setup
+## Installation and Setup
 
 We are assuming that you already have:
 - A working Kubernetes cluster running on AWS. If you don't have one please check out [kops](https://github.com/kubernetes/kops).
@@ -30,7 +30,7 @@ In order to Busbar to work properly you will need to have:
 - A S3 bucket for the private Docker registry set with the proper policy.
 
 
-### Create an private Route53 zone
+#### Create an private Route53 zone
 
 The private zone will need to be created and associated with the VPC where your Kubernetes cluster is running.
 
@@ -38,13 +38,13 @@ Please check the following AWS documentation in order to create the private zone
 - [Creating a Private Hosted Zone](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-creating.html)
 
 
-### Create an external Route53 zone
+#### Create an external Route53 zone
 
 Please check the following AWS documentation in order to create the public zone:
 - [Creating a Public Hosted Zone](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html)
 
 
-### Create an IAM User to be used by the private Docker registry
+#### Create an IAM User to be used by the private Docker registry
 
 Please check the following AWS documentation in order to create the IAM user to be used by the private Docker registry:
 - [Creating an IAM User in Your AWS Account](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
@@ -52,7 +52,7 @@ Please check the following AWS documentation in order to create the IAM user to 
 Don't forget to save the Access/Secret key pairs. They will be used when deploying Busbar into your Kubernetes Cluster.
 
 
-### Create a S3 bucket for the private Docker registry and set it with proper policy
+#### Create a S3 bucket for the private Docker registry and set it with proper policy
 
 Please check the following AWS documentation in order to create a S3 bucket:
 - [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
