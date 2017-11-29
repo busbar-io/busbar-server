@@ -57,7 +57,7 @@ Don't forget to save the Access/Secret key pairs. They will be used when deployi
 Please check the following AWS documentation in order to create a S3 bucket:
 - [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
 
-The recomended S3 bucket policy is the following (replace the values inside `<` and `>`):
+The recomended S3 bucket policy is the following (replace the values denoted by "<...>"):
 
 ```json
 {
@@ -100,7 +100,7 @@ In order to install busbar clone the [waldman/charts](https://github.com/waldman
 Go to the incubator folder:
 - `cd charts/incubator`
 
-And issue the following command replacing the needed values by the proper ones:
+And issue the following command replacing the needed values "<...>" by the proper ones:
 ```shell
 helm install busbar \
   --set clusterName=<kubernetes_cluster_name> \
