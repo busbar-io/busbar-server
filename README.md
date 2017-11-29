@@ -12,7 +12,11 @@ Busbar currently is an AWS centric application so access to an AWS account is ne
 
 ## Installation and Setup
 
-We are assuming that you already have a working Kubernetes cluster running on AWS. If not please check out [kops](https://github.com/kubernetes/kops).
+We are assuming that you already have:
+- A working Kubernetes cluster running on AWS. If you don't have one please check out [kops](https://github.com/kubernetes/kops).
+- Helm client installed on your local computer. If you don't have it installed please check out [helm - Install](https://github.com/kubernetes/helm#install)
+- Tiller installed and running on your Kubernetes cluster. If you don't have it installed please check out [Installing Tiller](https://docs.helm.sh/using_helm/#installing-tiller)
+- The Busbar CLI installed on your local computer. If you don't have it installed please check out [busbar-cli Installation](https://github.com/busbar-io/busbar-cli#installation-recomended)
 
 The steps bellow will show to you resources on setting up the needed AWS components and policies, install Busbar through [helm](https://github.com/kubernetes/helm) and put up a simple Ruby example application.
 
@@ -20,9 +24,9 @@ The steps bellow will show to you resources on setting up the needed AWS compone
 ### AWS Setup
 
 In order to Busbar to work properly you will need to have:
-- An private Route53 zone.
+- A private Route53 zone.
 - An external Route53 zone.
-- A IAM User to be used by the private Docker registry.
+- An IAM User to be used by the private Docker registry.
 - A S3 bucket for the private Docker registry set with the proper policy.
 
 
@@ -87,3 +91,22 @@ If in doubt on how to set the policy on your bucket please read the following (e
 
 
 ### Busbar Installation
+
+Busbar installation is done through [helm](https://github.com/kubernetes/helm).
+
+In order to install busbar clone the [waldman/charts](https://github.com/waldman/charts) repository to your local computer:
+- `git clone https://github.com/waldman/charts.git`
+
+Go to the incubator folder:
+- `cd charts/incubator`
+
+And issue the following command replacing the needed values by the proper ones:
+```shell
+helm install busbar \
+  --set clusterName=<kubernetes_cluster_name> \
+  --set privateDomainName=<private_route53_zone> \
+  --set registryStorageS3Accesskey=<private_docker_registry_s3_bucket_access_key> \
+  --set registryStorageS3Secretkey=<private_docker_registry_s3_bucket_secret_key> \
+  --set registryStorageS3Bucket=<private_docker_registry_s3_bucket>
+```
+
