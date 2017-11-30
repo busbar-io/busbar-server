@@ -18,7 +18,7 @@ We are assuming that you already have:
 - Tiller installed and running on your Kubernetes cluster. If you don't have it installed please check out [Installing Tiller](https://docs.helm.sh/using_helm/#installing-tiller)
 - The Busbar CLI installed on your local computer. If you don't have it installed please check out [busbar-cli Installation](https://github.com/busbar-io/busbar-cli#installation-recomended)
 
-The steps bellow will show to you resources on setting up the needed AWS components and policies, install Busbar through [helm](https://github.com/kubernetes/helm) and put up a simple Ruby example application.
+The steps bellow will show to you resources on setting up the needed AWS components and policies, install Busbar through [helm](https://github.com/kubernetes/helm) and put up a simple Ruby example application using the Busbar CLI.
 
 
 ## AWS Setup
@@ -57,7 +57,14 @@ Don't forget to save the Access/Secret key pairs. They will be used when deployi
 Please check the following AWS documentation in order to create a S3 bucket:
 - [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
 
-The recomended S3 bucket policy is the following (replace the values denoted by "<...>"):
+Following is the recomended S3 bucket policy (replace the values denoted by "<...>"):
+
+In order to set the needed access policy to your newly created bucket, on your AWS web console:
+- Navigate to `Service > Storage > S3`
+- Click on your bucket name
+- Click on the `Permissions` tab
+- Click on `Bucket Policy`
+- Paste the policy bellow replacing the needed values denoted by "<...>" with the proper ones:
 
 ```json
 {
@@ -78,13 +85,6 @@ The recomended S3 bucket policy is the following (replace the values denoted by 
     ]
 }
 ```
-
-In order to set the above policy on you newly created bucket, on your AWS web console:
-- Navigate to `Service > Storage > S3`
-- Click on your bucket name
-- Click on `Permissions` tab
-- Click on `Bucket Policy` on the `Permissions` tab
-- Paste the above policy replacing the needed values by the proper ones
 
 If in doubt on how to set the policy on your bucket please read the following (extensive) documentation:
 - [An Example Walkthrough: Using user policies to control access to your bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/walkthrough1.html)
@@ -109,4 +109,7 @@ helm install busbar \
   --set registryStorageS3Secretkey=<private_docker_registry_s3_bucket_secret_key> \
   --set registryStorageS3Bucket=<private_docker_registry_s3_bucket>
 ```
+
+
+## Setup a simple Ruby example
 
