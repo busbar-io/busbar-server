@@ -25,7 +25,7 @@ The steps bellow will show to you resources on setting up the needed AWS compone
 
 In order to Busbar to work properly you will need to have:
 - A private Route53 zone.
-- An external Route53 zone.
+- A public Route53 zone.
 - An IAM User to be used by the private Docker registry.
 - A S3 bucket for the private Docker registry set with the proper policy.
 
@@ -38,7 +38,7 @@ Please check the following AWS documentation in order to create the private zone
 - [Creating a Private Hosted Zone](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-creating.html)
 
 
-#### Create an external Route53 zone
+#### Create an public Route53 zone
 
 Please check the following AWS documentation in order to create the public zone:
 - [Creating a Public Hosted Zone](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html)
