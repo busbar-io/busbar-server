@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.6.0] - 2017-12-14
+### Upgrade
+- Upgrade docker to 1.13.1 and kubernetes to 1.6.13
+
 ## [1.5.2] - 2017-11-16
 ### Fix
 - Gems security update
