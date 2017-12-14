@@ -113,3 +113,22 @@ helm install busbar \
 
 ## Setup a simple Ruby example
 
+
+
+
+
+
+
+The schema for a standard cluster was created sucessfully.
+
+In order for the new cluster to comply with Gimbal's standard
+some changes will need to be made before the cluster is deployed.
+
+On the editor screen that will be open shortly you must to:
+- Add the following setting inside the spec session:
+  cloudConfig:
+    disableSecurityGroupIngress: true
+- Change the Subnets CIDRs accordingly with the VPC layout (Check the
+  current layout at AWS Web Console and proceed accordingly. Current
+  standad are 3 '/23' subnets).
+
