@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.8.0] - 2017-12-14
+### Upgrade
+- Upgrade kubernetes to 1.8.5
+
 ## [1.7.0] - 2017-12-14
 ### Upgrade
 - Upgrade kubernetes to 1.7.11
