@@ -1,3 +1,5 @@
+require 'open3'
+
 class CommandExecutorAndLogger
   include Serviceable
 
