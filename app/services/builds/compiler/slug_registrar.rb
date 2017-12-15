@@ -20,7 +20,7 @@ module Builds
       def_delegators :build, :image_tag, :image_url
 
       def register_image
-        cmd = "docker tag -f #{image_tag} #{image_url}"\
+        cmd = "docker tag #{image_tag} #{image_url}"\
               " && docker push #{image_url}"
 
         CommandExecutorAndLogger.call(cmd, build.log)
