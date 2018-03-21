@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Fix Gemfile.lock vulnerabilities
+- Update kubectl to 1.8.10
 
 ## [1.8.1] - 2017-12-15
 ### Fix

@@ -6,7 +6,7 @@
 FROM ruby:2.3.1-onbuild
 
 # Add kubectl
-ADD https://storage.googleapis.com/kubernetes-release/release/v1.8.5/bin/linux/amd64/kubectl /usr/bin/kubectl
+ADD https://storage.googleapis.com/kubernetes-release/release/v1.8.10/bin/linux/amd64/kubectl /usr/bin/kubectl
 RUN chmod a+x /usr/bin/kubectl
 
 # Add docker
