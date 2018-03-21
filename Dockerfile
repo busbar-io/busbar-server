@@ -16,6 +16,7 @@ RUN tar xf /tmp/docker.tgz -C /usr/bin --strip-components=1 && rm -f /tmp/docker
 # Update git client
 RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list \
     &&      apt-get update              \
+    &&      apt-get remove  -y binutils \
     &&      apt-get install -y git      \
     &&      apt-get clean all
 
