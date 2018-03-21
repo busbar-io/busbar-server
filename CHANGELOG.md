@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.8.2] - 2018-03-21
+- Fix Gemfile.lock vulnerabilities
+- Update kubectl to 1.8.10
+
 ## [1.8.1] - 2017-12-15
 ### Fix
 - Add missing require statement

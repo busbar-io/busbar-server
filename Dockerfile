@@ -6,7 +6,7 @@
 FROM ruby:2.3.1-onbuild
 
 # Add kubectl
-ADD https://storage.googleapis.com/kubernetes-release/release/v1.8.5/bin/linux/amd64/kubectl /usr/bin/kubectl
+ADD https://storage.googleapis.com/kubernetes-release/release/v1.8.10/bin/linux/amd64/kubectl /usr/bin/kubectl
 RUN chmod a+x /usr/bin/kubectl
 
 # Add docker
@@ -16,6 +16,7 @@ RUN tar xf /tmp/docker.tgz -C /usr/bin --strip-components=1 && rm -f /tmp/docker
 # Update git client
 RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list \
     &&      apt-get update              \
+    &&      apt-get remove  -y binutils \
     &&      apt-get install -y git      \
     &&      apt-get clean all
 
