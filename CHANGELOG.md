@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.8.2] - 2018-03-21
 - Fix Gemfile.lock vulnerabilities
 - Update kubectl to 1.8.10
 
