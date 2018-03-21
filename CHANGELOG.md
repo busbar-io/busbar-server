@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Unreleased
+- Fix Gemfile.lock vulnerabilities
+
 ## [1.8.1] - 2017-12-15
 ### Fix
 - Add missing require statement
