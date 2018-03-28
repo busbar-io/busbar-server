@@ -7,7 +7,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 gem 'sidekiq'
 gem 'mongoid'
-gem 'aasm'
+gem 'aasm', '~> 4.9.0'
 gem 'virtus'
 gem 'foreman'
 gem 'rake'

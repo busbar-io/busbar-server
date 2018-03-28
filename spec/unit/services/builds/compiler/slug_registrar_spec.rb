@@ -6,7 +6,7 @@ RSpec.describe Builds::Compiler::SlugRegistrar do
     let(:build) { Build.new(environment: environment, log: Log.new) }
 
     let(:command) do
-      "docker tag -f #{build.image_tag} #{build.image_url} && docker push #{build.image_url}"
+      "docker tag #{build.image_tag} #{build.image_url} && docker push #{build.image_url}"
     end
 
     subject { described_class.call(build) }

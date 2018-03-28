@@ -33,8 +33,6 @@ RSpec.describe PrivateInterfaces::Creator do
         metadata:   {
           name: "#{app_name}-#{environment_name}-private",
           annotations: {
-            'service.beta.kubernetes.io/aws-load-balancer-ssl-cert' =>
-              Configurations.interfaces.ssl_certificate,
             'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
             'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443',
             'service.beta.kubernetes.io/aws-load-balancer-internal' => '0.0.0.0/0'
