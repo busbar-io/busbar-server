@@ -9,6 +9,8 @@ module Environments
 
       upsert_environment_namespace
 
+      create_local_interface
+
       create_private_interface
 
       deploy
@@ -30,6 +32,16 @@ module Environments
 
     def create_private_interface
       PrivateInterfaceService.create(
+        {
+          app_name: environment.app_id,
+          environment_name: environment.name,
+          namespace: environment.namespace
+        }.with_indifferent_access
+      )
+    end
+
+    def create_local_interface
+      LocalInterfaceService.create(
         {
           app_name: environment.app_id,
           environment_name: environment.name,

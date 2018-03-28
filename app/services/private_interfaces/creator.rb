@@ -89,18 +89,18 @@ module PrivateInterfaces
           annotations: {
             'service.beta.kubernetes.io/aws-load-balancer-ssl-cert' =>
             Configurations.interfaces.ssl_certificate,
-              'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
-              'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443',
-              'service.beta.kubernetes.io/aws-load-balancer-internal' => '0.0.0.0/0'
+            'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
+            'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443',
+            'service.beta.kubernetes.io/aws-load-balancer-internal' => '0.0.0.0/0'
           }
         }
       else
         {
           name: service_name,
           annotations: {
-              'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
-              'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443',
-              'service.beta.kubernetes.io/aws-load-balancer-internal' => '0.0.0.0/0'
+            'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
+            'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443',
+            'service.beta.kubernetes.io/aws-load-balancer-internal' => '0.0.0.0/0'
           }
         }
       end
