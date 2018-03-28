@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://logger.cluster%5Fname.private%5Fdomain%5Fname/_search
+    uri: http://logger.cluster_name.private_domain_name/_search
     body:
       encoding: UTF-8
       string: '{"query":{"bool":{"must":[{"match":{"kubernetes.labels.busbar_io/app":"some_app"}},{"match":{"kubernetes.labels.busbar_io/component":"web"}},{"match":{"kubernetes.labels.busbar_io/environment":"production"}}]}},"_source":["log"],"size":"10","sort":[{"@timestamp":{"order":"desc"}}]}'

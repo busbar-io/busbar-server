@@ -3,11 +3,13 @@ require 'webmock/rspec'
 
 RSpec.describe Dns::ZoneCreator do
   describe '.call' do
+    before(:all) { VCR.turn_off! }
+    after(:all) { VCR.turn_on! }
+
     let(:provider)    { 'not_implemented' }
     let(:name)        { 'test' }
     let(:value)       { 'test.some.url' }
     let(:domain) { 'example.com' }
-
     subject { described_class.call(provider, domain, name, value) }
 
     it 'check not_implemented provider' do
@@ -44,7 +46,7 @@ RSpec.describe Dns::ZoneCreator do
       context 'when the record already exists' do
         before do
           stub_request(:get, "https://api.dnsimple.com/v2/0/zones/#{domain}/records?name=#{name}")
-            .with(headers: { Accept: 'application/json', 'User-Agent': 'dnsimple-ruby/3.1.0' })
+            .with(headers: { Accept: 'application/json', 'User-Agent': 'dnsimple-ruby/4.4.0' })
             .to_return(status:  200, body: list_records_exist.to_json, headers: {})
           allow(DnsimpleClient.zones).to receive(:update_record)
         end
@@ -69,7 +71,7 @@ RSpec.describe Dns::ZoneCreator do
       context 'when the record does not exists' do
         before do
           stub_request(:get, "https://api.dnsimple.com/v2/0/zones/#{domain}/records?name=#{name}")
-            .with(headers: { Accept: 'application/json', 'User-Agent': 'dnsimple-ruby/3.1.0' })
+            .with(headers: { Accept: 'application/json', 'User-Agent': 'dnsimple-ruby/4.4.0' })
             .to_return(status:  200, body: list_records_empty.to_json, headers: {})
           allow(DnsimpleClient.zones).to receive(:create_record)
         end

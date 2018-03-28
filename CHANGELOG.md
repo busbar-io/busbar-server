@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.1] - 2018-03-28
+### Fix
+- local interface implemented
+
 ## [1.9.0] - 2018-03-21
 ### Upgrade
 - Upgrade kubernetes to 1.9.6

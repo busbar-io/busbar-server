@@ -28,6 +28,7 @@ RSpec.describe EnvironmentDestroyProcessing do
         allow(environment).to receive(:destroy).and_return(true)
         allow(Environment).to receive(:find).with(environment.id).and_return(environment)
         allow(EnvironmentService).to receive(:destroy_components)
+        allow(LocalInterfaceService).to receive(:destroy)
         allow(PrivateInterfaceService).to receive(:destroy)
         allow(PublicInterfaceService).to receive(:destroy)
         allow(NamespaceService).to receive(:destroy)
@@ -39,7 +40,13 @@ RSpec.describe EnvironmentDestroyProcessing do
         expect(EnvironmentService).to have_received(:destroy_components).with(environment).once
       end
 
-      it "destroys the environment's ingress controller" do
+      it "destroys the environment's private controller" do
+        subject
+
+        expect(LocalInterfaceService).to have_received(:destroy).with(environment).once
+      end
+
+      it "destroys the environment's private controller" do
         subject
 
         expect(PrivateInterfaceService).to have_received(:destroy).with(environment).once

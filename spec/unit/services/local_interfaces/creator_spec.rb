@@ -1,12 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe PrivateInterfaces::Creator do
+RSpec.describe LocalInterfaces::Creator do
   describe '.call' do
     let(:label_prefix) { Configurations.kubernetes.label_prefix }
     let(:app_name) { 'test' }
-    let(:dns_provider) { Configurations.dns.private.provider }
-    let(:domain_name) { Configurations.dns.private.domain_name }
-    let(:cluster_name) { Configurations.cluster.name }
     let(:ports) { [{ port: 8000, targetPort: 8000 }] }
     let(:component) { 'web' }
     let(:environment_name) { 'staging' }
@@ -30,15 +27,8 @@ RSpec.describe PrivateInterfaces::Creator do
     let(:manifest) do
       { kind:       'Service',
         apiVersion: 'v1',
-        metadata:   {
-          name: "#{app_name}-#{environment_name}-private",
-          annotations: {
-            'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
-            'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443',
-            'service.beta.kubernetes.io/aws-load-balancer-internal' => '0.0.0.0/0'
-          }
-        },
-        spec:       { ports: ports, selector: selector, type: 'LoadBalancer' } }
+        metadata:   { name: app_name },
+        spec:       { ports: ports, selector: selector, type: 'ClusterIP' } }
     end
 
     let(:create_command) do
@@ -73,23 +63,6 @@ RSpec.describe PrivateInterfaces::Creator do
       subject
     end
 
-    it 'creates the private zone' do
-      expect(DnsService).to receive(:create_zone)
-        .with(dns_provider,
-              domain_name,
-              "#{app_name}.#{environment_name}.#{cluster_name}",
-              'some.host').once
-      subject
-    end
-
-    it 'waits for the load balancer to be created' do
-      expect(Interfaces::Getter).to receive(:call)
-        .with("#{app_name}-#{environment_name}-private", 'staging')
-        .once
-
-      subject
-    end
-
     context 'when it fails to create the interface' do
       before do
         allow_any_instance_of(described_class).to receive(:system)
@@ -99,7 +72,7 @@ RSpec.describe PrivateInterfaces::Creator do
 
       it 'raises a CreationError' do
         expect { subject }.to \
-          raise_error(PrivateInterfaces::Creator::CreationError)
+          raise_error(LocalInterfaces::Creator::CreationError)
       end
     end
 
