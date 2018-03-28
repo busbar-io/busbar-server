@@ -13,6 +13,8 @@ class EnvironmentDestroyProcessing
 
       PrivateInterfaceService.destroy(environment)
 
+      LocalInterfaceService.destroy(environment)
+
       PublicInterfaceService.destroy(environment)
 
       NamespaceService.destroy(environment.namespace)

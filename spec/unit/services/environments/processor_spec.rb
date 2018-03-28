@@ -17,6 +17,7 @@ RSpec.describe Environments::Processor do
     subject { described_class.call(environment) }
 
     before do
+      allow(LocalInterfaceService).to receive(:create)
       allow(PrivateInterfaceService).to receive(:create)
       allow(DeploymentService).to receive(:create)
       allow(NamespaceService).to receive(:upsert)
@@ -41,6 +42,17 @@ RSpec.describe Environments::Processor do
       subject
 
       expect(PrivateInterfaceService).to have_received(:create)
+        .with(
+          app_name: environment.app_id,
+          environment_name: environment.name,
+          namespace: environment.namespace
+        )
+    end
+
+    it 'creates a local interface' do
+      subject
+
+      expect(LocalInterfaceService).to have_received(:create)
         .with(
           app_name: environment.app_id,
           environment_name: environment.name,
