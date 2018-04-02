@@ -77,6 +77,14 @@ RSpec.describe Buildpacks::Detector do
         end
       end
 
+      context 'with a scala application' do
+        let(:path) { Rails.root.join('spec/fixtures/buildpacks/scala_app').to_s }
+
+        it 'returns java buildpack' do
+          expect(subject).to eq 'java'
+        end
+      end
+
       context 'with a custom buildpack' do
         let(:path) { Rails.root.join('spec/fixtures/buildpacks/custom_app').to_s }
 
