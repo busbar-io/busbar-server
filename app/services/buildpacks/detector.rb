@@ -7,7 +7,7 @@ module Buildpacks
     SIGNATURES = {
       'ruby' => ['Gemfile'],
       'node' => ['package.json'],
-      'java' => ['build.gradle', 'pom.xml'],
+      'java' => ['build.gradle', 'pom.xml', 'build.sbt'],
       'custom' => ['Dockerfile']
     }.freeze
 

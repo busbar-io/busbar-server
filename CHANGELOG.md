@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.2] - 2018-04-02
+### Fix
+- Java buildpack detection
+
 ## [1.9.1] - 2018-03-28
 ### Fix
 - local interface implemented
