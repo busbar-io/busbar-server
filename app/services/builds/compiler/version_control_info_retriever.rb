@@ -6,7 +6,7 @@ module Builds
       include Serviceable
 
       def call(build)
-        tag = `git -C #{build.path} describe --tags --abbrev=0`.chomp
+        tag = `git -C #{build.path} describe --tags --always --abbrev=0`.chomp
         commit = `git -C #{build.path} rev-parse HEAD`.chomp
 
         build.update_attributes(

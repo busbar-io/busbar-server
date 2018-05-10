@@ -31,23 +31,36 @@ module Environments
     end
 
     def create_private_interface
-      PrivateInterfaceService.create(
-        {
-          app_name: environment.app_id,
-          environment_name: environment.name,
-          namespace: environment.namespace
-        }.with_indifferent_access
-      )
+      if Configurations.service.provider != 'minikube'
+        PrivateInterfaceService.create(
+          {
+            app_name: environment.app_id,
+            environment_name: environment.name,
+            namespace: environment.namespace
+          }.with_indifferent_access
+        )
+      end
     end
 
     def create_local_interface
-      LocalInterfaceService.create(
-        {
-          app_name: environment.app_id,
-          environment_name: environment.name,
-          namespace: environment.namespace
-        }.with_indifferent_access
-      )
+      if Configurations.service.provider == 'minikube'
+        MinikubeInterfaceService.create(
+          {
+            app_name: environment.app_id,
+            environment_name: environment.name,
+            namespace: environment.namespace
+          }.with_indifferent_access
+        )
+
+      elsif Configurations.service.provider == 'aws'
+        LocalInterfaceService.create(
+          {
+            app_name: environment.app_id,
+            environment_name: environment.name,
+            namespace: environment.namespace
+          }.with_indifferent_access
+        )
+      end
     end
 
     def deploy

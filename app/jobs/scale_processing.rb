@@ -3,11 +3,16 @@ class ScaleProcessing
 
   ComponentNotFound = Class.new(StandardError)
   EnvironmentNotFound = Class.new(StandardError)
+  MinikubeServiceProvider = Class.new(StandardError)
 
   def perform(component_id, scale)
     @component_id = component_id
     raise(ComponentNotFound, component_id: component_id) unless component.present?
     raise(EnvironmentNotFound, environment_id: component.environment_id) unless environment.present?
+
+    if Configurations.service.provider == 'minikube'
+      raise(MinikubeServiceProvider, 'Scale not allowed on Minikube.')
+    end
 
     LockService.synchronize(environment_id: environment.id) do
       ComponentService.scale(component, scale)

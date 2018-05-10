@@ -2,9 +2,14 @@ class PublishController < ApplicationController
   before_action :load_environment
 
   def update
-    PublishProcessing.perform_async(@environment.id)
-    respond_to do |format|
-      format.json { head :accepted }
+    if Configurations.service.provider == 'minikube'
+      puts 'Publish not allowed when using minikube provider'
+      render json: "Publish not allowed when using minikube provider", status: :bad_request
+    else
+      PublishProcessing.perform_async(@environment.id)
+      respond_to do |format|
+        format.json { head :accepted }
+      end
     end
   end
 

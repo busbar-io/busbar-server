@@ -2,10 +2,15 @@ class Components::ResizeProcessing
   include Sidekiq::Worker
 
   ComponentNotFound = Class.new(StandardError)
+  MinikubeServiceProvider = Class.new(StandardError)
 
   def perform(component_id, node_id)
     @component_id = component_id
     @node_id = node_id
+
+    if Configurations.service.provider == 'minikube'
+      raise(MinikubeServiceProvider, 'Resize not allowed on Minikube.')
+    end
 
     LockService.synchronize(component_id: component.id) do
       component.update_attributes(node_id: node_id)

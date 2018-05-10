@@ -33,6 +33,10 @@ module Configurations
     default :ssl_certificate, ENV.fetch('SSL_CERTIFICATE', nil)
   end
 
+  config_context :service do
+    default :provider, ENV.fetch('PROVIDER', 'aws')
+  end
+
   config_context :dns do
     config_context :private do
       default :domain_name, SharedConfigFetcher.private_domain_name

@@ -11,13 +11,18 @@ class EnvironmentDestroyProcessing
     LockService.synchronize(environment_id: environment.id) do
       EnvironmentService.destroy_components(environment)
 
-      PrivateInterfaceService.destroy(environment)
+      if Configurations.service.provider == 'minikube'
+        MinikubeInterfaceService.destroy(environment)
 
-      LocalInterfaceService.destroy(environment)
+      elsif
+        PrivateInterfaceService.destroy(environment)
 
-      PublicInterfaceService.destroy(environment)
+        LocalInterfaceService.destroy(environment)
 
-      NamespaceService.destroy(environment.namespace)
+        PublicInterfaceService.destroy(environment)
+
+        NamespaceService.destroy(environment.namespace)
+      end
     end
 
     HookService.call(resource: environment, action: 'destroy', value: 'success')

@@ -1,26 +1,18 @@
 #
-# Dockerfile - Build and Setup Busbar Container
+# Dockerfile - Build and Setup Busbar Container - based on https://github.com/docker-library/ruby/blob/a6918175fd506b46bf2d8f899f4faa40e72296fb/2.3/jessie/onbuild/Dockerfile
 #
 
 # Base Image
-FROM ruby:2.3.1-onbuild
+FROM busbario/busbar-base:1.9.0
 
-# Add kubectl
-ADD https://storage.googleapis.com/kubernetes-release/release/v1.9.6/bin/linux/amd64/kubectl /usr/bin/kubectl
-RUN chmod a+x /usr/bin/kubectl
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
 
-# Add docker
-RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz -O /tmp/docker.tgz
-RUN tar xf /tmp/docker.tgz -C /usr/bin --strip-components=1 && rm -f /tmp/docker.tgz
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# Update git client
-RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list \
-    &&      apt-get update              \
-    &&      apt-get remove  -y binutils \
-    &&      apt-get install -y git      \
-    &&      apt-get clean all
+COPY Gemfile /usr/src/app/
+COPY Gemfile.lock /usr/src/app/
+RUN bundle install
 
-# Add Github and Bitbucket keys
-RUN mkdir /root/.ssh && chmod 0700 /root/.ssh
-RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
-RUN ssh-keyscan -t rsa bitbucket.org >> /root/.ssh/known_hosts
+COPY . /usr/src/app

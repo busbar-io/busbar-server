@@ -2,12 +2,17 @@ class ResizeProcessing
   include Sidekiq::Worker
 
   EnvironmentNotFound = Class.new(StandardError)
+  MinikubeServiceProvider = Class.new(StandardError)
 
   def perform(environment_id, node_id)
     @environment_id = environment_id
     @node_id = node_id
 
     raise(EnvironmentNotFound, environment_id: @environment_id) unless environment.present?
+
+    if Configurations.service.provider == 'minikube'
+      raise(MinikubeServiceProvider, 'Resize not allowed on Minikube.')
+    end
 
     LockService.synchronize(environment_id: environment.id) do
       environment.update_attributes(default_node_id: node_id)
