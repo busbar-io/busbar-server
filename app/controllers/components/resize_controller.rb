@@ -4,18 +4,17 @@ class Components::ResizeController < ApplicationController
   def update
     if Configurations.service.provider == 'minikube'
       puts 'Resize not allowed when using minikube provider'
-      render json: "Resize not allowed when using minikube provider", status: :bad_request
+      render json: 'Resize not allowed when using minikube provider', status: :bad_request
+
+    elsif Configurations.service.provider != 'minikube' && Node.find(params[:node_id])
+      Components::ResizeProcessing.perform_async(@component.id.to_s, params[:node_id])
+      respond_to do |format|
+        format.json { head :accepted }
+      end
 
     else
-      if Node.find(params[:node_id])
-        Components::ResizeProcessing.perform_async(@component.id.to_s, params[:node_id])
-        respond_to do |format|
-          format.json { head :accepted }
-        end
-      else
-        respond_to do |format|
-          format.json { head :unprocessable_entity }
-        end
+      respond_to do |format|
+        format.json { head :unprocessable_entity }
       end
     end
   end

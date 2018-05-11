@@ -5,7 +5,7 @@ class ScaleController < ApplicationController
   def show
     if Configurations.service.provider == 'minikube'
       puts 'Scaling not allowed when using minikube provider'
-      render json: "Scale not allowed when using minikube provider", status: :bad_request
+      render json: 'Scale not allowed when using minikube provider', status: :bad_request
     else
       respond_to do |format|
         format.json { render status: :ok, json: { scale: @component.scale } }
@@ -16,7 +16,7 @@ class ScaleController < ApplicationController
   def update
     if Configurations.service.provider == 'minikube'
       puts 'Scaling not allowed when using minikube provider'
-      render json: "Scale not allowed when using minikube provider", status: :bad_request
+      render json: 'Scale not allowed when using minikube provider', status: :bad_request
     else
       ScaleProcessing.perform_async(@component.id.to_s, params[:scale])
       respond_to do |format|

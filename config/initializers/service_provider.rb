@@ -6,7 +6,7 @@
 if Configurations.service.provider == 'minikube'
   puts 'minikube! \o/'
 
-elsif Configurations.service.proviber == 'aws'
+elsif Configurations.service.provider == 'aws'
   # Requires
   require 'ec2_metadata'
 

@@ -11,7 +11,7 @@ RSpec.describe Builds::Compiler::VersionControlInfoRetriever do
 
       allow_any_instance_of(described_class)
         .to receive(:`)
-        .with('git -C /some/build/path describe --tags --abbrev=0')
+        .with('git -C /some/build/path describe --tags --always --abbrev=0')
         .and_return("0.1.0\n")
 
       allow_any_instance_of(described_class)

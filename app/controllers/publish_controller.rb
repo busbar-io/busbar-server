@@ -4,7 +4,7 @@ class PublishController < ApplicationController
   def update
     if Configurations.service.provider == 'minikube'
       puts 'Publish not allowed when using minikube provider'
-      render json: "Publish not allowed when using minikube provider", status: :bad_request
+      render json: 'Publish not allowed when using minikube provider', status: :bad_request
     else
       PublishProcessing.perform_async(@environment.id)
       respond_to do |format|

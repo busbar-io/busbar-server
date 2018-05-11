@@ -14,7 +14,7 @@ class EnvironmentDestroyProcessing
       if Configurations.service.provider == 'minikube'
         MinikubeInterfaceService.destroy(environment)
 
-      elsif
+      else
         PrivateInterfaceService.destroy(environment)
 
         LocalInterfaceService.destroy(environment)
