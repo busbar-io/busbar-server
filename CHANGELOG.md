@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.9.3] - 2018-06-22
+### Add
+- Node version 10 support
+
+### Upgrade
+- Update Rubocop to version 0.49 - CVE-2017-8418
+
 ## [1.9.2] - 2018-04-02
 ### Fix
 - Java buildpack detection
