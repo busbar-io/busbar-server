@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+### Added
+- Node version 10 support
+
 ## [1.9.2] - 2018-04-02
 ### Fix
 - Java buildpack detection
