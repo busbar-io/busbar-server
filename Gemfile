@@ -31,7 +31,7 @@ end
 
 group :development do
   gem 'spring'
-  gem 'rubocop', '~> 0.38.0', require: false
+  gem 'rubocop', '~> 0.49.0', require: false
 end
 
 group :test do
