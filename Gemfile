@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2'
+gem 'sprockets', '~> 3.7.2'
 gem 'mixlib-config', require: 'mixlib/config'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -17,7 +18,6 @@ gem 'ec2-metadata'
 gem 'dnsimple'
 gem 'sinatra', require: false
 gem 'redis-namespace'
-gem 'jazz_fingers'
 gem 'pry-rails'
 gem 'java-properties'
 gem 'elasticsearch'
@@ -27,6 +27,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'rspec-context-private'
+  gem 'jazz_fingers'
 end
 
 group :development do

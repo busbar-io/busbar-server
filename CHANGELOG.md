@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.4] - 2018-06-22
+### Fix
+- Fix sproute version: 3.7.1 > 3.7.2 - CVE-2018-3760
+
 ## [1.9.3] - 2018-06-22
 ### Add
 - Node version 10 support
