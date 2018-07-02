@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+### Add
+- Node version 8 support
+
 ## [1.9.4] - 2018-06-22
 ### Fix
 - Fix sproute version: 3.7.1 > 3.7.2 - CVE-2018-3760
