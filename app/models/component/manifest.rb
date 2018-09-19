@@ -45,7 +45,8 @@ class Component
     def labels(prefix = Configurations.kubernetes.label_prefix)
       { "#{prefix}/app" => app_id,
         "#{prefix}/environment" => environment.name,
-        "#{prefix}/component" => type }.with_indifferent_access
+        "#{prefix}/component" => type,
+        "#{prefix}/nodetype" => node.id }.with_indifferent_access
     end
 
     def spec
