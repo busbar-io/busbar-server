@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.9.6] - 2018-09-19
 ### Add
 - Node type added to the manifest labels
 
