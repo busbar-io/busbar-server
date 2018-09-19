@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.6] - 2018-09-19
+### Add
+- Node type added to the manifest labels
+
 ## [1.9.5] - 2018-07-02
 ### Add
 - Node version 8 support
