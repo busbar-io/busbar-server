@@ -16,4 +16,5 @@ class Node
   attribute :cpu,            String
   attribute :guaranteed_cpu, String
   attribute :memory,         String
+  attribute :selector,       String, :default => Configurations.apps.node_selector
 end
