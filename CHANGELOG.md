@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [Unreleased]
+
+## [1.9.8] - 2018-12-06
+### Add
+- More granular node selector control
+### Remove
+- Node type manifest label
+
 ## [1.9.7] - 2018-09-20
 ### Fixed
 - The resource allocation for the nginx web frontends
