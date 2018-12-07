@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## [Unreleased]
+
+## [1.9.8] - 2018-12-06
 ### Add
 - More granular node selector control
 ### Remove
