@@ -1,5 +1,14 @@
 # CHANGELOG
 
+
+## [Unreleased]
+
+## [1.9.8] - 2018-12-06
+### Add
+- More granular node selector control
+### Remove
+- Node type manifest label
+
 ## [1.9.7-1] - 2019-01-14
 ### Add
 - Add componentes data on the environment API output
