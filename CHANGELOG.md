@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Unrleased
+### Add
+- Add CORS header
+
+### Fix
+- Fix deploy key being added to the compiled image
+
 ## [1.9.7-1] - 2019-01-14
 ### Add
 - Add componentes data on the environment API output
