@@ -1,7 +1,12 @@
 # CHANGELOG
 
+## [Unrelased]
+### Add
+- Add CORS header
 
-## [Unreleased]
+### Fix
+- Fix deploy key being added to the compiled image
+
 ### Add
 - Add componentes data on the environment API output
 
