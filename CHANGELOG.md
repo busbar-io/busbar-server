@@ -1,11 +1,17 @@
 # CHANGELOG
 
-## Unrelased
+## [Unrelased]
 ### Add
 - Add CORS header
 
 ### Fix
 - Fix deploy key being added to the compiled image
+
+### Add
+- Add componentes data on the environment API output
+
+### Fix
+- Fix JazzFingers initializer
 
 ## [1.9.8-1] - 2019-01-15
 ### Add
@@ -14,6 +20,7 @@
 ## [1.9.8] - 2018-12-06
 ### Add
 - More granular node selector control
+
 ### Remove
 - Node type manifest label
 

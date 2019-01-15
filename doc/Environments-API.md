@@ -16,6 +16,7 @@ updated_at     | Time (ISO) | No       |
 state          | String     | No       | One of _new_, _processing_ or _available_
 settings       | Hash       | No       |
 default_branch | String     | Yes      | Which branch should be used as default when deploying the app. Default value: the Apps' `default_branch`. e.g: _master_, _develop_
+component      | Hash       | Yes      | Hast with the configured components and it's type, node_id and current scale
 
 \*= It uses a dockerfile placed at the root of the applications source code.
 
