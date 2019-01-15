@@ -1,5 +1,6 @@
 # CHANGELOG
 
+
 ## [Unreleased]
 ### Add
 - Add componentes data on the environment API output
@@ -7,12 +8,23 @@
 ### Fix
 - Fix JazzFingers initializer
 
+## [1.9.8-1] - 2019-01-15
+### Add
+- Backported changes from tag 1.9.7-1
+
 ## [1.9.8] - 2018-12-06
 ### Add
 - More granular node selector control
 
 ### Remove
 - Node type manifest label
+
+## [1.9.7-1] - 2019-01-14
+### Add
+- Add componentes data on the environment API output
+
+### Fix
+- Fix JazzFingers initializer
 
 ## [1.9.7] - 2018-09-20
 ### Fixed
