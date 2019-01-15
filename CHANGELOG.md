@@ -1,7 +1,11 @@
 # CHANGELOG
 
+## Unrelased
+### Add
+- Add CORS header
 
-## [Unreleased]
+### Fix
+- Fix deploy key being added to the compiled image
 
 ## [1.9.8-1] - 2019-01-15
 ### Add

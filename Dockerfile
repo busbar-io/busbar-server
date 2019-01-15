@@ -24,3 +24,6 @@ RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> 
 RUN mkdir /root/.ssh && chmod 0700 /root/.ssh
 RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 RUN ssh-keyscan -t rsa bitbucket.org >> /root/.ssh/known_hosts
+
+# Remove pem key created during development
+RUN rm config/deploy.pem

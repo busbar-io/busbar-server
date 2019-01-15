@@ -23,6 +23,10 @@ module Busbar
 
     config.i18n.default_locale = :en
 
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*'
+    }
+
     %w(lib/mixins
        app/factories
        app/repositories
