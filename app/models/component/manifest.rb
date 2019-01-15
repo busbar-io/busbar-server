@@ -30,14 +30,14 @@ class Component
     end
 
     def spec_template
-      if Configurations.apps.node_selector.nil?
+      if node.selector.nil?
         { metadata:     { labels: labels },
           spec:         { containers: containers } }.with_indifferent_access
       else
         { metadata:     { labels: labels },
           spec:         { containers: containers,
                           nodeSelector: { "beta.kubernetes.io/instance-type": \
-                                          Configurations.apps.node_selector \
+                                          node.selector \
         } } }.with_indifferent_access
       end
     end
@@ -45,8 +45,7 @@ class Component
     def labels(prefix = Configurations.kubernetes.label_prefix)
       { "#{prefix}/app" => app_id,
         "#{prefix}/environment" => environment.name,
-        "#{prefix}/component" => type,
-        "#{prefix}/nodetype" => node.id }.with_indifferent_access
+        "#{prefix}/component" => type }.with_indifferent_access
     end
 
     def spec
