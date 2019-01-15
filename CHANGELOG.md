@@ -3,6 +3,10 @@
 
 ## [Unreleased]
 
+## [1.9.8-1] - 2019-01-15
+### Add
+- Backported changes from tag 1.9.7-1
+
 ## [1.9.8] - 2018-12-06
 ### Add
 - More granular node selector control
