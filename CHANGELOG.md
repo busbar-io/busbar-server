@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.9.7-1] - 2019-01-14
+### Add
+- Add componentes data on the environment API output
+
+### Fix
+- Fix JazzFingers initializer
+
 ## [1.9.7] - 2018-09-20
 ### Fixed
 - The resource allocation for the nginx web frontends
