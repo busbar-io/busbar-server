@@ -1,1 +1,1 @@
-require 'jazz_fingers/setup' if defined?(JazzFingers)
+JazzFingers.setup! if defined?(JazzFingers)
