@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+### Add
+- Add Nodes API endpoint
+
 ## [1.9.7-2] - 2019-01-15
 ### Add
 - Add CORS header
