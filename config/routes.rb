@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   CRUD_ACTIONS = %w(index create show update destroy).freeze
 
   get '/health' => 'health#check', as: 'health_check'
+  get '/nodes' => 'nodes#index'
 
   resources :apps, only: CRUD_ACTIONS do
     resources :environments, param: :name do
