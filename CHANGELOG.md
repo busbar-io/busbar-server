@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.9.7-3] - 2019-01-15
 ### Add
 - Add Nodes API endpoint
 
