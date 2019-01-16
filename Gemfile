@@ -21,6 +21,7 @@ gem 'redis-namespace'
 gem 'pry-rails'
 gem 'java-properties'
 gem 'elasticsearch'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'dotenv-rails'

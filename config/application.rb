@@ -23,9 +23,22 @@ module Busbar
 
     config.i18n.default_locale = :en
 
-    config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => '*'
-    }
+		# config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+		config.middleware.insert_before 0, "Rack::Cors", :debug => false, :logger => (-> { Rails.logger }) do
+			allow do
+				origins '*'
+
+				resource '/scale',
+					:headers => :any,
+					:methods => [:get, :post, :delete, :put, :patch, :options, :head],
+					:max_age => 0
+
+				resource '*',
+					:headers => :any,
+					:methods => [:get, :post, :delete, :put, :patch, :options, :head],
+					:max_age => 0
+			end
+		end
 
     %w(lib/mixins
        app/factories

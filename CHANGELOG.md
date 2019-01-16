@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.7-4] - 2019-01-16
+### Fix
+- Fix CORS policy for Put and enabled it on /scale
+
 ## [1.9.7-3] - 2019-01-15
 ### Add
 - Add Nodes API endpoint
