@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.7-5] - 2019-06-07
+### Fix
+- Update dependencies due to security issues
+
 ## [1.9.7-4] - 2019-01-16
 ### Fix
 - Fix CORS policy for Put and enabled it on /scale

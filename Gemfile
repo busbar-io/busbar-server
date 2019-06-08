@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2'
 gem 'sprockets', '~> 3.7.2'
-gem 'mixlib-config', require: 'mixlib/config'
+gem 'mixlib-config', '~> 2.2', require: 'mixlib/config'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
