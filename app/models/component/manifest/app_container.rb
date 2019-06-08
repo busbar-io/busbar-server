@@ -34,7 +34,8 @@ class Component
       def environment_settings
         env = settings.except('PORT')
                       .map { |k, v| { name: k.to_s, value: v.to_s }.with_indifferent_access }
-        env << { name: '_JAVA_OPTIONS', value: '-Xmx1280m -Xms1280m' }.with_indifferent_access
+        env << { name: '_JAVA_OPTIONS', value: '-Xmx${CONTAINER_MEMORY} -Xms${CONTAINER_MEMORY}' }.with_indifferent_access
+        env << { name: 'CONTAINER_MEMORY', valueFrom: { resourceFieldRef: 'limits.memory'}}.with_indifferent_access
         env << { name: '_BUSBAR_BUILD_TIME', value: timestamp.to_s }.with_indifferent_access
         env << { name: 'PORT', value: app_port.to_s }.with_indifferent_access
         env

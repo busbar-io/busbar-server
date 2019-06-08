@@ -3,6 +3,7 @@
 ## [1.9.7-5] - 2019-06-07
 ### Fix
 - Update dependencies due to security issues
+- Update manifests template to use container memory limit when setting "_JAVA_OPTIONS"
 
 ## [1.9.7-4] - 2019-01-16
 ### Fix
