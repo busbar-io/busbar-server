@@ -8,7 +8,7 @@ module Components
     def call(component)
       @component = component
 
-      uninstall
+      uninstall if exists?
 
       component
     end
@@ -16,6 +16,11 @@ module Components
     private
 
     attr_reader :component
+
+    def exists?
+      cmd = "kubectl get deployment #{component.name} --namespace #{component.namespace}"
+      system(cmd)
+    end
 
     def uninstall
       cmd    = "kubectl delete deployment #{component.name} --namespace=#{component.namespace}"
