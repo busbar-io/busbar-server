@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.9.7-5] - 2019-07-12
+### Fixed
+- 'destroy' application method (add checking to not fail in case component doesn't exist)
+- Busbar Docker build by updating apt repository string
+
 ## [1.9.7-4] - 2019-01-16
 ### Fix
 - Fix CORS policy for Put and enabled it on /scale
