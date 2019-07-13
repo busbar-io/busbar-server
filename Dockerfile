@@ -8,7 +8,7 @@ FROM ruby:2.3.1-onbuild
 # Update git client
 RUN echo "deb http://ftp.us.debian.org/debian/ buster main contrib non-free" >> /etc/apt/sources.list \
     && apt-get update \
-    && apt-get remove  -y binutils --force-yes \
+    && apt-get remove -y binutils --force-yes \
     && apt-get install -t buster -y git --force-yes \
     && apt-get clean all
 

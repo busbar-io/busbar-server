@@ -1,9 +1,9 @@
 # CHANGELOG
 
 ## [1.9.7-5] - 2019-07-12
-### Fix
-- Fix 'destroy' application method - Add checking to not fail in case component doesn't exist
-- Fix busbar Docker build - fix apt repository string
+### Fixed
+- 'destroy' application method (add checking to not fail in case component doesn't exist)
+- Busbar Docker build by updating apt repository string
 
 ## [1.9.7-4] - 2019-01-16
 ### Fix

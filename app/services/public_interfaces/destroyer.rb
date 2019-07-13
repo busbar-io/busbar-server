@@ -2,9 +2,11 @@ module PublicInterfaces
   class Destroyer
     include Serviceable
 
+    # This method uses `environment.id` while all the others uses `environment.name`.
+    # We are keeping like this to not break compatibility with current busbar installations.
     def call(environment)
       @environment = environment
-      @service = "#{environment.app_id}-#{environment.id}-public" # Yes... it uses environment.id here and environment.name everywhere else! ¯\_(ツ)_/¯
+      @service = "#{environment.app_id}-#{environment.id}-public"
       if environment.public?
         uninstall(@service) if exists?(@service)
       end
