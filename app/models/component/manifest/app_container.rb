@@ -37,10 +37,13 @@ class Component
         env << { name: '_JAVA_OPTIONS', value: '-Xmx1280m -Xms1280m' }.with_indifferent_access
         env << { name: '_BUSBAR_BUILD_TIME', value: timestamp.to_s }.with_indifferent_access
         env << { name: 'PORT', value: app_port.to_s }.with_indifferent_access
+        env << { name: 'DATADOG_LOGS_SERVICE', value: app_id }.with_indifferent_access
+        env << { name: 'DATADOG_LOGS_SOURCE', value: environment.buildpack_id }.with_indifferent_access
         env << { name: 'BUSBAR_APP', value: app_id }.with_indifferent_access
         env << { name: 'BUSBAR_ENV', value: environment.name }.with_indifferent_access
         env << { name: 'BUSBAR_COMPONENT', value: type }.with_indifferent_access
         env << { name: 'BUSBAR_NODETYPE', value: node.id }.with_indifferent_access
+        env << { name: 'BUSBAR_BUILDPACK', value: environment.buildpack_id }.with_indifferent_access
         env
       end
     end

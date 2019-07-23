@@ -3,7 +3,9 @@ class JavaBuildpack
 
   LATEST    = '1.8'.freeze
   SUPPORTED = %w(1.8).freeze
-  TEMPLATE  = 'FROM <%= base_images_registry_url %>/java:<%= java_version %>'.freeze
+  TEMPLATE = [
+    'FROM <%= base_images_registry_url %>/java:<%= java_version %>'
+  ].join("\n").freeze
 
   def compile
     inject_dockerfile

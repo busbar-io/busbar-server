@@ -2,6 +2,7 @@
 
 ## Unreleased
 ### Added
+- Set busbar to proper label apps 'source' and 'service' for Datadog Logs
 - Env variable `BUSBAR_APP` to show the app name
 - Env variable `BUSBAR_ENV` to tell the environment where the app was deployed
 - Env variable `BUSBAR_COMPONENT` to tell the component type from the Procfile
