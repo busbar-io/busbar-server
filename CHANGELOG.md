@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Unreleased
+### Added
+- Env variable `BUSBAR_APP` to show the app name
+- Env variable `BUSBAR_ENV` to tell the environment where the app was deployed
+- Env variable `BUSBAR_COMPONENT` to tell the component type from the Procfile
+- Env variable `BUSBAR_NODETYPE` to show the currently set nodetype
+
 ## [1.9.7-5] - 2019-07-12
 ### Fixed
 - 'destroy' application method (add checking to not fail in case component doesn't exist)
