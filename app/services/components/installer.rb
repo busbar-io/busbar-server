@@ -34,8 +34,8 @@ module Components
 
       component.log.append_step('Error while installing component')
 
-      component.log.append('Kubernetes Manifest File Content:')
-      component.log.append('---------------------------------')
+      component.log.append('Kubernetes Manifest File Contents:')
+      component.log.append('----------------------------------')
 
       fh = open manifest_file.path
       manifest_content = fh.read
