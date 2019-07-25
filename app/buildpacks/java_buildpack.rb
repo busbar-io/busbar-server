@@ -3,7 +3,7 @@ class JavaBuildpack
 
   LATEST    = '1.8'.freeze
   SUPPORTED = %w(1.8).freeze
-  TEMPLATE = [
+  TEMPLATE  = [
     'FROM <%= base_images_registry_url %>/java:<%= java_version %>'
   ].join("\n").freeze
 
