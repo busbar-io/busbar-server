@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## [1.9.8] - 2019-07-25
+### Added
+- Improve error logging - Add Kubernetes manifest content to error output
+- Set busbar to proper label apps 'source' and 'service' for Datadog Logs
+- Env variable `BUSBAR_APP` to show the app name
+- Env variable `BUSBAR_ENV` to tell the environment where the app was deployed
+- Env variable `BUSBAR_COMPONENT` to tell the component type from the Procfile
+- Env variable `BUSBAR_NODETYPE` to show the currently set nodetype
+
+### Fixed
+- Small grammar correction on app/services/components/installer.rb
+
+### Security
+- Update vulnerable libraries
+
 ## [1.9.7-5] - 2019-07-12
 ### Fixed
 - 'destroy' application method (add checking to not fail in case component doesn't exist)

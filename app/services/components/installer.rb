@@ -34,6 +34,20 @@ module Components
 
       component.log.append_step('Error while installing component')
 
+      component.log.append('Kubernetes Manifest File Contents:')
+      component.log.append('----------------------------------')
+
+      fh = open manifest_file.path
+      manifest_content = fh.read
+      fh.close
+
+      require 'json'
+      require 'yaml'
+      manifest_content_hash = JSON.parse(manifest_content)
+      manifest_content_yaml = manifest_content_hash.to_yaml
+
+      component.log.append(manifest_content_yaml)
+
       raise
 
     ensure
