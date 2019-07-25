@@ -1,7 +1,10 @@
 class RubyBuildpack
   include Buildpack
 
-  TEMPLATE = 'FROM <%= base_images_registry_url %>/ruby:<%= ruby_version %>'.freeze
+  TEMPLATE = [
+    'FROM <%= base_images_registry_url %>/ruby:<%= ruby_version %>'
+  ].join("\n").freeze
+
 
   def compile
     inject_dockerfile

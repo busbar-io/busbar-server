@@ -31,10 +31,12 @@ class Component
 
     def spec_template
       if Configurations.apps.node_selector.nil?
-        { metadata:     { labels: labels },
+        { metadata:     { labels: labels,
+                          annotations: annotations },
           spec:         { containers: containers } }.with_indifferent_access
       else
-        { metadata:     { labels: labels },
+        { metadata:     { labels: labels,
+                          annotations: annotations },
           spec:         { containers: containers,
                           nodeSelector: { "beta.kubernetes.io/instance-type": \
                                           Configurations.apps.node_selector \
@@ -47,6 +49,16 @@ class Component
         "#{prefix}/environment" => environment.name,
         "#{prefix}/component" => type,
         "#{prefix}/nodetype" => node.id }.with_indifferent_access
+    end
+
+    def annotations
+      app_string = "[{\"source\":\"#{datadog_logs_source}\",\"service\":\"#{datadog_logs_service}\"}]"
+      if web_component?
+        web_string = "[{\"source\":\"nginx\",\"service\":\"#{datadog_logs_service}\"}]"
+        { "ad.datadoghq.com/#{name}.logs": app_string.to_s, "ad.datadoghq.com/#{name}-nginx.logs": web_string.to_s }.with_indifferent_access
+      else
+        { "ad.datadoghq.com/#{name}.logs": app_string.to_s }.with_indifferent_access
+      end
     end
 
     def spec
@@ -68,6 +80,18 @@ class Component
       port = web_port
       port += 10 if web_component?
       port
+    end
+
+    def java_options
+      settings.fetch('_JAVA_OPTIONS', '-Xmx1280m -Xms1280m').to_s
+    end
+
+    def datadog_logs_service
+      settings.fetch('DATADOG_LOGS_SERVICE', "#{app_id}-#{type}").to_s
+    end
+
+    def datadog_logs_source
+      settings.fetch('DATADOG_LOGS_SOURCE', environment.buildpack_id).to_s
     end
 
     def web_port
