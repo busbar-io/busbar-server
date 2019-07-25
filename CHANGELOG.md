@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.9.8] - 2019-07-25
 ### Added
 - Improve error logging - Add Kubernetes manifest content to error output
 - Set busbar to proper label apps 'source' and 'service' for Datadog Logs
