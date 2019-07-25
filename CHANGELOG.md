@@ -9,6 +9,12 @@
 - Env variable `BUSBAR_COMPONENT` to tell the component type from the Procfile
 - Env variable `BUSBAR_NODETYPE` to show the currently set nodetype
 
+### Fixed
+- Small grammar correction on app/services/components/installer.rb
+
+### Security
+- Update vulnerable libraries
+
 ## [1.9.7-5] - 2019-07-12
 ### Fixed
 - 'destroy' application method (add checking to not fail in case component doesn't exist)

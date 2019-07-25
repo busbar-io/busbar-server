@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2'
 gem 'sprockets', '~> 3.7.2'
-gem 'mixlib-config', require: 'mixlib/config'
+gem 'mixlib-config', '2.2.18', require: 'mixlib/config'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
@@ -23,6 +23,12 @@ gem 'java-properties'
 gem 'elasticsearch'
 gem 'rack-cors', require: 'rack/cors'
 
+gem "actionview", ">= 4.2.11.1"
+gem "nokogiri", ">= 1.8.5"
+gem "activejob", ">= 4.2.11"
+gem "rack", ">= 1.6.11"
+gem "loofah", ">= 2.2.3"
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'spring-commands-rspec'
@@ -32,7 +38,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'spring'
+  gem 'spring', '2.0.2'
   gem 'rubocop', '~> 0.49.0', require: false
 end
 
