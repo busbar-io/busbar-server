@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.9.9] - 2019-08-19
 ## Changed
 - Deploy new images without removing previous docker cache
 
