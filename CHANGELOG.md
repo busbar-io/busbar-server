@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [Unreleased]
+## Changed
+- Deploy new images without removing previous docker cache
+
 ## [1.9.8] - 2019-07-25
 ### Added
 - Improve error logging - Add Kubernetes manifest content to error output
