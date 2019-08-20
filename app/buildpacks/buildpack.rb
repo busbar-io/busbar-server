@@ -33,7 +33,7 @@ module Buildpack
 
     def build_image
       cmd = "cd #{path}"\
-            " && docker build --force-rm --rm --tag=#{image_tag} --no-cache ."
+            " && docker build --tag=#{image_tag} ."
 
       CommandExecutorAndLogger.call(cmd, build.log)
     end
