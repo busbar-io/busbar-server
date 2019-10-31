@@ -1,7 +1,14 @@
 # CHANGELOG
 
+## [1.9.10] - 2019-10-30
+### Changed
+- Add maven to Java buildpack
+
+### Fixed
+- Nokogiri security vulnerability
+
 ## [1.9.9] - 2019-08-19
-## Changed
+### Changed
 - Deploy new images without removing previous docker cache
 
 ## [1.9.8] - 2019-07-25
