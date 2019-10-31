@@ -4,7 +4,10 @@ class JavaBuildpack
   LATEST    = '1.8'.freeze
   SUPPORTED = %w(1.8).freeze
   TEMPLATE  = [
-    'FROM <%= base_images_registry_url %>/java:<%= java_version %>'
+    'FROM <%= base_images_registry_url %>/java:<%= java_version %>',
+    'ENV BASE64_MAVEN_SETTINGS=<%= base64_maven_setting %>',
+    'RUN mkdir -p ${HOME}/.m2',
+    'RUN cat $BASE64_MAVEN_SETTINGS | base64 --decode > ${HOME}/.m2/settings.xml'
   ].join("\n").freeze
 
   def compile
@@ -15,6 +18,10 @@ class JavaBuildpack
 
   def base_images_registry_url
     Configurations.docker.base_images_registry_url
+  end
+
+  def base64_maven_setting
+    Configurations.java.base64_maven_setting
   end
 
   def java_version

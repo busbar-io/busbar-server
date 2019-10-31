@@ -33,7 +33,7 @@ module Buildpack
 
     def build_image
       cmd = "cd #{path}"\
-            " && docker build --build-arg base64_maven_settings=${BASE64_MAVEN_SETTINGS} --tag=#{image_tag} ."
+            " && docker build --tag=#{image_tag} ."
 
       CommandExecutorAndLogger.call(cmd, build.log)
     end

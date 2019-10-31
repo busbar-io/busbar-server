@@ -89,6 +89,10 @@ module Configurations
     default :base_images_registry_url, ENV.fetch('BASE_IMAGES_REGISTRY_URL', 'busbario')
   end
 
+  config_context :java do
+    default :base_images_registry_url, ENV.fetch('BASE64_MAVEN_SETTINGS')
+  end
+
   config_context :git do
     default :deployment_key_file, ENV.fetch('DEPLOYMENT_KEY_FILE_PATH', 'config/deploy.pem')
     default :deployment_key, ENV.fetch('DEPLOYMENT_KEY',

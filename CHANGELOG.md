@@ -2,7 +2,7 @@
 
 ## [1.9.10] - 2019-10-30
 ### Changed
-- Add maven settings file argument to docker build
+- Add maven to Java buildpack
 
 ## [1.9.9] - 2019-08-19
 ### Changed

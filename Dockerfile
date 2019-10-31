@@ -17,13 +17,10 @@ ADD https://storage.googleapis.com/kubernetes-release/release/v1.9.6/bin/linux/a
 RUN chmod a+x /usr/bin/kubectl
 
 # Add docker
-RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz -O /tmp/docker.tgz
+ADD https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz /tmp/docker.tgz
 RUN tar xf /tmp/docker.tgz -C /usr/bin --strip-components=1 && rm -f /tmp/docker.tgz
 
 # Add Github and Bitbucket keys
 RUN mkdir /root/.ssh && chmod 0700 /root/.ssh
 RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 RUN ssh-keyscan -t rsa bitbucket.org >> /root/.ssh/known_hosts
-
-# Remove pem key created during development
-RUN rm config/deploy.pem
