@@ -2,7 +2,7 @@ class NodeBuildpack
   include Buildpack
 
   LATEST    = '12'.freeze # 8 is the LTS version
-  SUPPORTED = %w(5 6 8 10 11 12).freeze
+  SUPPORTED = %w(5 6 8 10 12).freeze
   TEMPLATE  = [
     'FROM <%= base_images_registry_url %>/node:<%= node_version %>',
     'ADD package.json /usr/src/app/',
