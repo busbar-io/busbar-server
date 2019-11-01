@@ -1,7 +1,7 @@
 class NodeBuildpack
   include Buildpack
 
-  LATEST    = '12'.freeze # 8 is the LTS version
+  LATEST    = '12'.freeze # 12 is the LTS version
   SUPPORTED = %w(5 6 8 10 12).freeze
   TEMPLATE  = [
     'FROM <%= base_images_registry_url %>/node:<%= node_version %>',
