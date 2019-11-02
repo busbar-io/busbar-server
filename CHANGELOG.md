@@ -1,9 +1,9 @@
 # CHANGELOG
 
-## [1.9.11] - 2019-11-01
-### Unreleased
-- Add available node build pack 10 & 12.
-- Update node build pack to default on v12.
+## Unreleased
+### Changed
+- Add available node build pack 10 & 12
+- Update node build pack to default on v12
 
 ## [1.9.10] - 2019-10-30
 ### Changed
