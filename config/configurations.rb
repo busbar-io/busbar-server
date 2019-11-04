@@ -31,6 +31,7 @@ module Configurations
     end
 
     default :ssl_certificate, ENV.fetch('SSL_CERTIFICATE', nil)
+    default :ssl_policy, ENV.fetch('SSL_POLICY', nil)
   end
 
   config_context :dns do
