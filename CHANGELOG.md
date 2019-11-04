@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+### Changed
+- Add available node build pack 10 & 12
+- Update node build pack to default on v12
+
 ## [1.9.10] - 2019-10-30
 ### Changed
 - Add maven to Java buildpack
