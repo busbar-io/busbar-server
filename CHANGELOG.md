@@ -2,7 +2,7 @@
 
 ## Unreleased
 ### Changed
-- Add SSL_POLICY configuration for service annotation.
+- Add SSL_POLICY configuration for service annotation
 - Add available node build pack 10 & 12
 - Update node build pack to default on v12
 
