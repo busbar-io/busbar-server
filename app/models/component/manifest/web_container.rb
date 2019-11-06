@@ -27,8 +27,8 @@ class Component
       private
 
       def web_resources
-        { limits: { cpu: '4', memory: '64Mi' },
-          requests: { cpu: '10m', memory: '64Mi' } }.with_indifferent_access
+        { limits: { cpu: '4', memory: '128Mi' },
+          requests: { cpu: '10m', memory: '128Mi' } }.with_indifferent_access
       end
     end
   end
