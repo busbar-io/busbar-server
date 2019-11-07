@@ -43,7 +43,7 @@ class Component
   end
 
   def name
-    [app_id, environment_id, type].join('-')
+    [app_id, type].join('-')
   end
 
   def app_id
