@@ -842,7 +842,7 @@ GEM
       multi_json
     equalizer (0.0.11)
     erubis (2.7.0)
-    excon (0.65.0)
+    excon (0.71.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     fog-aws (3.5.2)
