@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.12] - 2020-01-01
+### Fixed
+- Fix maven building pipeline
+
 ## [1.9.11] - 2019-10-30
 ### Changed
 - Increase web container proxy memory
