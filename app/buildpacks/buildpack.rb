@@ -32,6 +32,10 @@ module Buildpack
     end
 
     def build_image
+      aws_login = IO.popen(['$(aws ecr get-login --no-include-email --region', Configurations.aws.region]).read
+            raise "it failed!" unless $?.exitstatus == 0
+            return aws_login
+
       cmd = "cd #{path}"\
             " && docker build --build-arg BASE64_MAVEN_SETTINGS=#{base64_maven_settings} --tag=#{image_tag} ."
 
