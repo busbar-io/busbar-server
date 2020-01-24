@@ -10,6 +10,7 @@ RUN echo "deb http://ftp.us.debian.org/debian/ buster main contrib non-free" >> 
     && apt-get update \
     && apt-get remove -y binutils --force-yes \
     && apt-get install -t buster -y git --force-yes \
+    && apt-get install -y awscli --force-yes \
     && apt-get clean all
 
 # Add kubectl
@@ -24,3 +25,9 @@ RUN tar xf /tmp/docker.tgz -C /usr/bin --strip-components=1 && rm -f /tmp/docker
 RUN mkdir /root/.ssh && chmod 0700 /root/.ssh
 RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 RUN ssh-keyscan -t rsa bitbucket.org >> /root/.ssh/known_hosts
+
+# Add entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["webserver"]
