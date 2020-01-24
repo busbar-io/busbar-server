@@ -27,7 +27,7 @@ gem "actionview", ">= 4.2.11.1"
 gem "nokogiri", ">= 1.8.5"
 gem "activejob", ">= 4.2.11"
 gem "rack", ">= 1.6.11"
-gem "loofah", ">= 2.2.3"
+gem "loofah", ">= 2.3.1"
 
 group :development, :test do
   gem 'dotenv-rails'
