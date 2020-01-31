@@ -26,8 +26,17 @@ RUN mkdir /root/.ssh && chmod 0700 /root/.ssh
 RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 RUN ssh-keyscan -t rsa bitbucket.org >> /root/.ssh/known_hosts
 
-# Add entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# Set up busbar-server
+RUN mkdir -p /opt/busbar-server && \
+    chmod 0700 /opt/busbar-server && \
+    cd /opt/busbar-server
+COPY . /opt/busbar-server
+RUN ./bin/install && ./bin/bundle
+
+# Set entrypoint
+RUN chmod +x /opt/busbar-server/entrypoint.sh
+ENTRYPOINT ["/opt/busbar-server/entrypoint.sh"]
+
+# Default
+WORKDIR /opt/busbar-server
 CMD ["webserver"]
