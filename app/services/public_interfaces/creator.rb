@@ -104,6 +104,8 @@ module PublicInterfaces
         annotations: {
           'service.beta.kubernetes.io/aws-load-balancer-ssl-cert' =>
             Configurations.interfaces.ssl_certificate,
+          'service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy' =>
+            Configurations.interfaces.ssl_policy,
           'service.beta.kubernetes.io/aws-load-balancer-backend-protocol' => 'http',
           'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': '443'
         }
