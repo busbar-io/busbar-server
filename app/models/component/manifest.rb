@@ -48,7 +48,11 @@ class Component
       { "#{prefix}/app" => app_id,
         "#{prefix}/environment" => environment.name,
         "#{prefix}/component" => type,
-        "#{prefix}/nodetype" => node.id }.with_indifferent_access
+        "#{prefix}/nodetype" => node.id,
+        "tags.datadoghq.com/env" => environment.name,
+        "tags.datadoghq.com/service" => app_id,
+        "tags.datadoghq.com/version" => timestamp.to_s
+      }.with_indifferent_access
     end
 
     def annotations
