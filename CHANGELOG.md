@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.9.13] - 2021-02-11
+### Added
+- Add Datadog APM environment variable to application manifest
+
 ## [1.9.12] - 2020-01-01
 ### Fixed
 - Fix maven building pipeline

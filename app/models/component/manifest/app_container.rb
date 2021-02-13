@@ -37,6 +37,10 @@ class Component
         env << { name: '_JAVA_OPTIONS', value: java_options.to_s }.with_indifferent_access
         env << { name: '_BUSBAR_BUILD_TIME', value: timestamp.to_s }.with_indifferent_access
         env << { name: 'PORT', value: app_port.to_s }.with_indifferent_access
+        env << { name: 'DD_AGENT_HOST', valueFrom: { fieldRef: { fieldPath: 'status.hostIP'}}}.with_indifferent_access
+        env << { name: 'DD_ENV', value: environment.name }.with_indifferent_access
+        env << { name: 'DD_SERVICE', value: app_id }.with_indifferent_access
+        env << { name: 'DD_VERSION', value: timestamp.to_s  }.with_indifferent_access
         env << { name: 'BUSBAR_APP', value: app_id }.with_indifferent_access
         env << { name: 'BUSBAR_ENV', value: environment.name }.with_indifferent_access
         env << { name: 'BUSBAR_COMPONENT', value: type }.with_indifferent_access
